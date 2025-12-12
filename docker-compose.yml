@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  jeopardy:
+    build: .
+    container_name: jeopardy
+    restart: unless-stopped
+    ports:
+      - "3010:3000"
+    volumes:
+      - jeopardy-data:/app/data
+      - jeopardy-uploads:/app/public/uploads
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jeopardy.rule=Host(`jeopardy.staging.hacktive.education`)"
+      - "traefik.http.routers.jeopardy.entrypoints=websecure"
+      - "traefik.http.routers.jeopardy.tls.certresolver=letsencrypt"
+      - "traefik.http.services.jeopardy.loadbalancer.server.port=3000"
+    networks:
+      - traefik-public
+
+volumes:
+  jeopardy-data:
+  jeopardy-uploads:
+
+networks:
+  traefik-public:
+    external: true
