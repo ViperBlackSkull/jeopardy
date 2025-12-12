@@ -1,0 +1,21 @@
+[
+  {
+    "id": "306289c4-f236-430d-9479-547fdd301527",
+    "accessCode": "9PH56N",
+    "name": "Test Game",
+    "categories": [],
+    "players": [],
+    "currentQuestion": null,
+    "currentCategory": null,
+    "buzzerActive": false,
+    "buzzerQueue": [],
+    "phase": "lobby",
+    "createdAt": "2025-12-12T18:45:59.784Z",
+    "settings": {
+      "allowNegative": true,
+      "buzzerLockoutMs": 250,
+      "showAnswerToAll": true,
+      "dailyDoubleCount": 1
+    }
+  }
+]
